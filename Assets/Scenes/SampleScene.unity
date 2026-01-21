@@ -1108,6 +1108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a73148091554dd4dabda806fd505e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMovementEnabled: 1
+  MovementSpeed: 5
+  m_CharacterController: {fileID: 2103338555}
+  m_Input: {fileID: 2103338557}
 --- !u!114 &2103338557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,6 +1136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8cc3fad210dad449e076becb08c40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FollowSpeed: 5
   GunSlots:
   - {fileID: 390512979}
   - {fileID: 416577840}

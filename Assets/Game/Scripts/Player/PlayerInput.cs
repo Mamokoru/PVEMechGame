@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -65,5 +66,10 @@ public class PlayerInput : MonoBehaviour, GameInputSystem.IPlayerActions
     private void OnDisable()
     {
         SavedPlayerInput.Disable();
+    }
+
+    internal InputData GetInputData()
+    {
+        return _inputData;
     }
 }

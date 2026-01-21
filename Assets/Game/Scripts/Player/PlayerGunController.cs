@@ -28,7 +28,7 @@ public class PlayerGunController : MonoBehaviour
         for (int i = 0; i < GunLength; i++)
         {
             if (Guns[i] == null) continue;
-            CalcRotation = (CanAimAtTarget(Guns[i], Target)) ? Quaternion.LookRotation(Target.position - Guns[i].position) : Quaternion.LookRotation(transform.forward * 10 - Guns[i].position);
+            CalcRotation = CanAimAtTarget(Guns[i], Target) ? Quaternion.LookRotation(Target.position - Guns[i].position) : Quaternion.LookRotation((transform.position + transform.forward * 10) - Guns[i].position);
             Guns[i].rotation = Quaternion.Lerp(Guns[i].rotation, CalcRotation, Time.deltaTime * FollowSpeed);
         }
     }
@@ -48,7 +48,7 @@ public class PlayerGunController : MonoBehaviour
 
         directionToPoint.Normalize();
 
-        float angle = Vector3.Angle(player.forward, directionToPoint);
+        float angle = Mathf.Abs(Vector3.SignedAngle(player.forward, directionToPoint, player.forward));
 
         return angle <= fieldOfViewAngle * 0.5f;
     }
